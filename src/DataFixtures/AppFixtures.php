@@ -10,14 +10,12 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        // $product = new Product();
-        // $manager->persist($product);
-        for ($i = 0; $i < 10; $i++) {
-            $user = new Article;
-            $user->setTitle('Bonjour voici le titre de l\'article'.$i);
-            $manager->persist($user);
-        }
+        for($i = 1; $i <= 10; $i++) {
+            $article = new Article();
+            $article->setTitle("Article " . $i);
 
+            $manager->persist($article);
+        }
         $manager->flush();
     }
 }
